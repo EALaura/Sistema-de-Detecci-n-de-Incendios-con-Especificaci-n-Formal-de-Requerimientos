@@ -1,0 +1,65 @@
+class Test1
+
+instance variables
+
+public s1 : Sensor;
+public s2 : Sensor;
+public a1 : Alarma;
+public a2 : Alarma;
+public a3 : Alarma;
+public p1 : Planta;
+public p2 : Planta;
+
+operations
+	public run: () ==>()
+	run() == test1();
+	
+	public test1:()==>()
+	test1()== (
+
+		s1:=new Sensor();
+		s1.setTemperatura(48);
+		s1.setHumo(35);
+
+		s2:=new Sensor();
+
+		a1:=new Alarma(s1);
+
+		a2:=new Alarma();
+		a2.setMensaje("prueba coverage");
+		a2.setEstado(false);
+
+		p1:=new Planta(s1,a1);
+		p1.VerificarSistema(s1,a1);
+		p1.ActivarAlarma(a1);
+
+		a3:=new Alarma();
+		p2:=new Planta(s2,a3);
+		p2.VerificarSistema(s2,a3);
+		p2.ActivarAlarma(a3);
+
+	);
+
+	public test2:()==>Planta`String
+	test2()==(
+		a2.getMensaje();
+
+	);
+
+	public test3:()==>bool
+	test3()==(
+		a2.getEstado();
+	);
+
+	public test4:()==>Planta`String
+	test4()==(
+		p1.senialCentral();
+	);
+	public test5:()==>Planta`String
+	test5()==(
+		p2.senialCentral();
+
+	);
+	
+
+end Test1

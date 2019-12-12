@@ -1,0 +1,45 @@
+class Sensor
+
+instance variables
+
+/* se establece la temperatura en 20
+   ya que es la temperatura ambiente */
+
+	public temperatura:real:=20;
+	public humo:real:=20;
+	
+/* El sensor de temperatura solo puede
+   permitir valores entre -273 C y 190 C */
+
+	inv
+		temperatura >= -273;
+	inv
+		temperatura <= 190;
+	inv
+		humo > 0;
+	inv
+		humo < 50;
+
+operations
+
+	public setTemperatura:real ==>()
+	setTemperatura(temp) ==(
+		temperatura:=temp;
+	);
+
+	public getTemperatura:()==>real
+	getTemperatura()==(
+		return temperatura;
+	);
+
+	public setHumo:real==>()
+	setHumo(hum)==(
+		humo:=hum;
+	);
+
+	public getHumo:()==>real
+	getHumo()==(
+		return humo;
+	);
+
+end Sensor

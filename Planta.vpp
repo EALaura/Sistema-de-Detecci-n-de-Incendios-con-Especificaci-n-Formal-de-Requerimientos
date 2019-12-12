@@ -1,0 +1,44 @@
+class Planta
+types
+public String = seq of char;
+
+instance variables
+	public estado:bool:=false;
+	
+operations
+
+public Planta: Sensor*Alarma==>Planta
+Planta(sen,alar)==(
+	VerificarSistema(sen,alar);
+);
+
+/* La senal de alerta para la temperatura se da cuando la
+temperatura es mayor a 47 C */
+
+public VerificarSistema: Sensor*Alarma ==> ()
+VerificarSistema(sen,alar)==(
+ if (sen.getTemperatura() > 47 and sen.getHumo() > 30)
+	then(
+		alar.setEstado(true);
+		ActivarAlarma(alar);
+		estado:= true; 
+	);
+);
+
+public ActivarAlarma: Alarma ==> ()
+ActivarAlarma(alarm)==(
+	if alarm.getEstado() = true
+		then alarm.setMensaje("Esta ocurriendo un incendio")
+	else
+		alarm.setMensaje("no esta pasando nada")
+);
+
+/*Imprime una senal de alerta*/
+public senialCentral:()==>Planta`String
+senialCentral()==
+return (if estado = true
+		then "enviando mensaje de alerta a la central"
+		else "mensaje inactivo"
+		);
+
+end Planta

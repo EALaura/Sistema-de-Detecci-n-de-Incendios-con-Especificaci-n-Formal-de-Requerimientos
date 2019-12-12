@@ -1,0 +1,39 @@
+class Alarma
+
+types 
+	public String = seq of char;
+
+instance variables
+	public mensaje: String;
+	public sensorr: Sensor;
+	public estado:bool:=false;
+
+operations
+
+	public Alarma: Sensor==>Alarma
+	Alarma(sens)==(
+		sensorr:=sens;
+	);
+	
+	public setEstado:bool==>()
+	setEstado(est)==(
+		estado:=est;
+	);
+
+	public getEstado:()==>bool
+	getEstado()==(
+		return estado;
+	);
+	
+	public setMensaje:String ==> ()
+	setMensaje(msj)==(
+		mensaje:=msj;
+	);
+
+	public getMensaje:()==>String
+	getMensaje()==(
+		return mensaje;
+	);
+
+
+end Alarma
