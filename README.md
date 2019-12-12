@@ -1,2 +1,2 @@
-# Sistema-de-Detecci-n-de-Incendios-con-Especificaci-n-Formal-de-Requerimientos
+# Sistema-de-Deteccion-de-Incendios-con-Especificacion-Formal-de-Requerimientos
 Repositorio de Requerimientos de especificación formal. VDM++
